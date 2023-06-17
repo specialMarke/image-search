@@ -1,0 +1,23 @@
+div {
+  columns: 5;
+  gap: 1rem;
+}
+
+a:focus {
+  outline: none;
+}
+
+a:focus-within img,
+img:hover {
+  transform: scale(1.1);
+  outline: 0.4rem solid red;
+}
+
+img {
+  object-fit: cover;
+  margin: 1rem;
+}
+
+form {
+  display: flex;
+}

@@ -1,0 +1,32 @@
+<header>
+  <form [formGroup]="formGroup" (ngSubmit)="searchForImages()">
+    <fieldset>
+      <label for="search">Search for images containing:</label>
+      <input
+        formControlName="search"
+        type="text"
+        name="search"
+        id="search"
+        placeholder="Cats"
+      />
+    </fieldset>
+    <footer>
+      <button type="submit">Search</button>
+    </footer>
+  </form>
+</header>
+
+<ng-container *ngIf="{ searchResult: searchResult$ | async } as data">
+  <ng-container *ngIf="data.searchResult && data.searchResult.length === 0">
+    <p>Enter a search term to find some images.</p>
+  </ng-container>
+
+  <ng-container *ngIf="data.searchResult && data.searchResult.length > 0">
+    <div>
+      <ng-container *ngFor="let item of data.searchResult">
+        <a [routerLink]="'./' + item.id"
+          ><img height="200" width="200" [src]="item.url" [alt]="item.title"
+        /></a>
+      </ng-container></div
+  ></ng-container>
+</ng-container>

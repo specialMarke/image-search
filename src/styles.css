@@ -1,1 +1,102 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  --flowBg: #fff;
+  --flowColor: #333;
+  --stickyBg: linear-gradient(to bottom, #fff4, #fffc 25%, #fff 100%);
+  --standoutBg: #048;
+  --standoutColor: #fff;
+  --headerColor: #000;
+  --anchorColor: #321;
+  --anchorVisitedColor: #654;
+  --anchorHoverColor: #840;
+  --modalFrameBg: #dddc;
+  --modalLightFrameBg: #ddd3;
+  --modalBoxBg: #eee;
+  --modalBoxShadow: 0.25rem 0.25rem 0.75rem #0003;
+  --boxBorder: 0.0625rem solid #0006;
+  --modalHeaderBg: #ddd;
+  --modalSubHeaderBorder: 0.125rem solid #0004;
+  --buttonBg: #ccc;
+  --buttonBgHover: #fec;
+  --toolTipBg: #ddd;
+  --quoteBorderColor: #876;
+  --quoteBg: #fed;
+  --quoteColor: #420;
+  --focus: 0 0 0.125em #048, 0 0 0.5em #08f;
+}
+
+html,
+body,
+div,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+form,
+fieldset,
+caption,
+legend,
+table,
+tr,
+td,
+th,
+address,
+blockquote,
+img {
+  margin: 0;
+  padding: 0;
+}
+
+img,
+fieldset {
+  border: none;
+}
+
+body *,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+legend {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: block;
+}
+
+button,
+label,
+summary {
+  cursor: pointer;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body,
+button,
+input,
+table,
+textarea,
+select {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-family: inherit;
+}
+
+body {
+  font-family: sans-serif;
+  color: var(--flowColor);
+  background: var(--flowBg);
+}
