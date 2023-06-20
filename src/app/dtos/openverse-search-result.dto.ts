@@ -1,8 +1,8 @@
 export interface OpenverseSearchResultDto {
-  results: Result[];
+  results: ResultDto[];
 }
 
-export interface Result {
+export interface ResultDto {
   id: string;
   height: number;
   width: number;
@@ -10,12 +10,12 @@ export interface Result {
   url: string;
   creator: string;
   creator_url: string;
-  tags: Tag[];
+  tags: TagDto[];
   license: string;
   license_url: string;
   license_version: string;
 }
 
-interface Tag {
+interface TagDto {
   name: string;
 }
