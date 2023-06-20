@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+import { BehaviorSubject, Observable, switchMap } from 'rxjs';
 import { SearchResult } from 'src/app/models/search-result';
 import { ApiService } from '../../services/api.service';
 
@@ -11,16 +12,26 @@ import { ApiService } from '../../services/api.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SearchListComponent {
-  searchResult$: Observable<SearchResult[]> = this._service.listBy('');
+  private _refreshSub = new BehaviorSubject<void>(undefined);
+
+  searchResult$: Observable<SearchResult[]> = this._refreshSub.pipe(
+    switchMap(() => this._service.listBy(this.route.queryParamMap))
+  );
   formGroup = new FormGroup({
     search: new FormControl(),
   });
 
-  constructor(private _service: ApiService) {}
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private _service: ApiService
+  ) {}
 
   searchForImages(): void {
     const term = this.formGroup.controls['search'].value;
 
-    this.searchResult$ = this._service.listBy(term);
+    this.router.navigate([''], { queryParams: { term: term } });
+
+    this._refreshSub.next();
   }
 }
