@@ -1,8 +1,3 @@
-div {
-  columns: 5;
-  gap: 1rem;
-}
-
 a:focus {
   outline: none;
 }
@@ -14,10 +9,13 @@ img:hover {
 }
 
 img {
-  object-fit: cover;
   margin: 1rem;
 }
 
 form {
   display: flex;
+}
+
+#searchResults li {
+  display: inline;
 }

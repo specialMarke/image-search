@@ -1,5 +1,6 @@
 <a routerLink="../">← Back</a>
-<div *ngIf="{ image: image$ | async } as data">
+
+<ng-container *ngIf="{ image: image$ | async } as data">
   <ng-container *ngIf="data.image">
     <h2>{{ data.image.title }}</h2>
     <img
@@ -10,19 +11,20 @@
     />
     <ul>
       <li>
-        Creator: <a [href]="data.image.creator_url">{{ data.image.creator }}</a>
+        <span>Creator:</span>&nbsp;
+        <a [href]="data.image.creator_url">{{ data.image.creator }}</a>
       </li>
       <li>
-        License:
+        <span>License:</span>&nbsp;
         <a [href]="data.image.license_url"
           >{{ data.image.license }} {{ data.image.license_version }}</a
         >
       </li>
-      <li>Height: {{ data.image.height }}</li>
-      <li>Width: {{ data.image.width }}</li>
-      <li>
-        Tags:
-        <ul>
+      <li><span>Height:</span>&nbsp; {{ data.image.height }}</li>
+      <li><span>Width:</span>&nbsp; {{ data.image.width }}</li>
+      <li id="tag">
+        <span>Tags:</span>
+        <ul id="tags">
           <ng-container *ngFor="let tag of data.image.tags">
             <li>{{ tag }}</li>
           </ng-container>
@@ -35,4 +37,4 @@
     <h2>Uuuups.</h2>
     <p>The image you've been searching for could not be found.</p>
   </ng-container>
-</div>
+</ng-container>

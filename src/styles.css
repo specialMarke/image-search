@@ -1,27 +1,7 @@
 body {
-  --flowBg: #fff;
+  --flowBg: whitesmoke;
   --flowColor: #333;
-  --stickyBg: linear-gradient(to bottom, #fff4, #fffc 25%, #fff 100%);
-  --standoutBg: #048;
-  --standoutColor: #fff;
-  --headerColor: #000;
-  --anchorColor: #321;
-  --anchorVisitedColor: #654;
-  --anchorHoverColor: #840;
-  --modalFrameBg: #dddc;
-  --modalLightFrameBg: #ddd3;
-  --modalBoxBg: #eee;
-  --modalBoxShadow: 0.25rem 0.25rem 0.75rem #0003;
-  --boxBorder: 0.0625rem solid #0006;
-  --modalHeaderBg: #ddd;
-  --modalSubHeaderBorder: 0.125rem solid #0004;
-  --buttonBg: #ccc;
-  --buttonBgHover: #fec;
-  --toolTipBg: #ddd;
-  --quoteBorderColor: #876;
-  --quoteBg: #fed;
-  --quoteColor: #420;
-  --focus: 0 0 0.125em #048, 0 0 0.5em #08f;
+  --borderRadius: 0.5rem;
 }
 
 html,
@@ -66,16 +46,8 @@ body *,
   box-sizing: border-box;
 }
 
-legend {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  display: block;
-}
-
 button,
-label,
-summary {
+label {
   cursor: pointer;
 }
 
@@ -86,10 +58,7 @@ body {
 
 body,
 button,
-input,
-table,
-textarea,
-select {
+input {
   font-size: 1rem;
   line-height: 1.5;
   font-family: inherit;
@@ -99,4 +68,13 @@ body {
   font-family: sans-serif;
   color: var(--flowColor);
   background: var(--flowBg);
+}
+
+img {
+  object-fit: cover;
+  border-radius: var(--borderRadius);
+}
+
+ul {
+  list-style-type: none;
 }

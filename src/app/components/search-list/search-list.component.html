@@ -22,11 +22,13 @@
   </ng-container>
 
   <ng-container *ngIf="data.searchResult && data.searchResult.length > 0">
-    <div>
+    <ul id="searchResults">
       <ng-container *ngFor="let item of data.searchResult">
-        <a [routerLink]="'./' + item.id"
-          ><img height="200" width="200" [src]="item.url" [alt]="item.title"
-        /></a>
-      </ng-container></div
+        <li>
+          <a [routerLink]="'./' + item.id"
+            ><img height="200" width="200" [src]="item.url" [alt]="item.title"
+          /></a>
+        </li>
+      </ng-container></ul
   ></ng-container>
 </ng-container>
