@@ -1,13 +1,13 @@
 <header>
-  <form [formGroup]="formGroup" (ngSubmit)="searchForImages()">
+  <form (ngSubmit)="searchForImages()">
     <fieldset>
       <label for="search">Search for images containing:</label>
       <input
-        formControlName="search"
         type="text"
         name="search"
         id="search"
         placeholder="Cats"
+        [(ngModel)]="term"
       />
     </fieldset>
     <footer>

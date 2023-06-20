@@ -14,6 +14,8 @@ export class ApiService {
   private _baseUrl: string = 'https://api.openverse.engineering/v1';
   private _searchResult: SearchResult[] = [];
 
+  term: string | null = null;
+
   constructor(private _http: HttpClient) {}
 
   getOneBy(id: string): Observable<SearchResult | null> {
@@ -36,11 +38,11 @@ export class ApiService {
   listBy(queryParamMap$: Observable<ParamMap>): Observable<SearchResult[]> {
     return queryParamMap$.pipe(
       switchMap((queryParamMap) => {
-        const term = queryParamMap.get('term');
+        this.term = queryParamMap.get('term');
 
-        if (!term) return of([]);
+        if (!this.term) return of([]);
 
-        return this._listBy(term);
+        return this._listBy(this.term);
       })
     );
   }
